@@ -1,0 +1,6 @@
+  /* styles.css */
+.icon-hover:hover {
+    transform: scale(1.2); /* Ajusta el factor de escala según tus preferencias */
+    transition: transform 0.2s ease-in-out; /* Agrega una transición suave */
+  }
+  
