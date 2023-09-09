@@ -6,9 +6,10 @@ function Navbar() {
       </div>
       <div className="flex-none" >
         <ul className="menu menu-horizontal px-1 text-xl font-semibold">
-          <li><a>Home</a></li>
+          <li><a id='About me'>Home</a></li>
           <li><a>About me</a></li>
           <li><a>Projects</a></li>
+          <li><a>certificates</a></li>
           <li><a>Contact</a></li>
         </ul>
       </div>

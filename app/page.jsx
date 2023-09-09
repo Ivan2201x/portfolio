@@ -1,11 +1,16 @@
 'use client'
 import  Navbar  from './components/navbar';
 import  Home  from './components/home';
+import Myskills from './components/myskills';
+import Aboutme from './components/aboutme';
 
  function Page() {
   return (
-    <><Navbar />
+    <>
+    <Navbar />
     <Home />
+    <Myskills />
+    <Aboutme />
     </>
   )
 }

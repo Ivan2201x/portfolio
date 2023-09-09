@@ -1,6 +1,5 @@
 'use client'
-import { Center, Stack, Heading, Image, Text, Link, HStack } from '@chakra-ui/react'
-import './home.css'
+import { Center, Stack, Heading, Image, Text, Link, HStack } from '@chakra-ui/react';
 
 export default function Home() {
     return (
@@ -10,26 +9,28 @@ export default function Home() {
                 direction={{ base: 'column', sm: 'row' }}
                 bg='transparent'
                 alignItems="center"
-                spacing={{ base: '4', sm: '8' }} // Aumenta el espacio entre elementos en pantallas más grandes
+                spacing={{ base: '4', sm: '8' }}
             >
                 <Image
                     maxW={{ base: '100%', sm: '400px' }}
                     src='/logo.png'
-                    mr={{ base: '0', sm: '550' }} // Mueve la imagen más a la izquierda en pantallas más grandes
+                    mr={{ base: '0', sm: '550' }}
                     borderRadius='30%'
-                    boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)' // Ajusta la sombra según tus preferencias
+                    boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
                 />
+                
 
-                <Stack flex="1" alignItems="flex-start" textAlign="left"> {/* Alinea el texto a la izquierda */}
-                    <Heading size='4xl' color='blue.700'>Junior Web <br />Developer</Heading> {/* Aumenta el tamaño del encabezado */}
- 
-                    <Text py='4' color='black' fontSize="2xl"> {/* Aumenta el tamaño de las letras */}
+
+                <Stack flex="1" alignItems="flex-start" textAlign="left">
+                    <Heading size='4xl' color='blue.700'>Junior Web <br />Developer</Heading>
+                    <Text py='4' color='black' fontSize="2xl" ml='2'>
                         Hi, I'm Ivan Puga.  <br />
-                        A passionate and starter Developer Junior <br />
+                        A passionate starter Developer Junior <br />
                         from Ecuador. <br />
                     </Text>
 
-                    <HStack spacing="8" mt='10'> {/* Mueve los iconos de las redes hacia abajo */}
+
+                    <HStack spacing="8" mt='10'>
                         <Link href='https://github.com/Ivan2201x' isExternal>
                             <Image src='/githubIcon.png' boxSize='35px' className='icon-hover' />
                         </Link>
@@ -39,6 +40,8 @@ export default function Home() {
                     </HStack>
                 </Stack>
             </Stack>
+            
         </Center>
     )
 }
+
