@@ -2,7 +2,7 @@ import { Box, Heading, Text, Image } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
 export default function Aboutme() {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,13 +16,8 @@ export default function Aboutme() {
         window.addEventListener('scroll', handleScroll);
         handleScroll();
 
-        const delayTimer = setTimeout(() => {
-            setIsVisible(true);
-        }, 100);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            clearTimeout(delayTimer);
         };
     }, []);
 
@@ -36,7 +31,7 @@ export default function Aboutme() {
             ml='20%'
             mb='20%'
             opacity={isVisible ? 1 : 0}
-            transition='opacity 1s ease-in-out'
+            transition='opacity 1s ease-in'
         >
             <Box>
                 <Heading mt='5' ml='7%' className='text-slate-500' size='2xl'>
