@@ -28,12 +28,21 @@ function Navbar() {
   }, []);
 
   const handleNavClick = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
+    if (sectionId === '/') {
+      // Manejar el caso de "IvanDev" para regresar al inicio de la página
       window.scrollTo({
-        top: section.offsetTop,
+        top: 0,
         behavior: "smooth"
       });
+    } else {
+      // Para las otras secciones, realiza el desplazamiento suave
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop,
+          behavior: "smooth"
+        });
+      }
     }
   };
 
@@ -43,7 +52,7 @@ function Navbar() {
       position="sticky"
       top={0}
       zIndex={10}
-      boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
+      boxShadow='0px 4px 6px rgba(0, 0, 0, 0.3)'
       opacity={isVisible ? 1 : 0}
       transition="opacity 0.5s"
     >
@@ -57,7 +66,7 @@ function Navbar() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <p className="text-3xl  text-white font-bold">IvanDev</p>
+        <a className="text-3xl menu menu-horizontal cursor-pointer text-white font-bold" onClick={() => handleNavClick("/")}>IvanDev</a>
         <ul className="menu menu-horizontal text-xl font-bold text-white">
           <li><a onClick={() => handleNavClick("home")}>Home</a></li>
           <li><a onClick={() => handleNavClick("aboutme")}>About me</a></li>
