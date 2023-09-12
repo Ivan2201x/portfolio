@@ -25,16 +25,15 @@ export default function Aboutme() {
         <Box
             id='aboutme'
             maxW='900px'
-            h='500px'
+            h='650px'
             overflow='hidden'
             mt='10%'
             ml='20%'
-            mb='20%'
             opacity={isVisible ? 1 : 0}
             transition='opacity 1s ease-in'
         >
             <Box>
-                <Heading mt='5' ml='7%' className='text-slate-500' size='2xl'>
+                <Heading mt='15%' ml='7%' className='text-slate-500' size='2xl'>
                     About Me
                 </Heading>
                 <Image

@@ -57,8 +57,8 @@ function Navbar() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <p className="text-3xl  text-black font-bold">IvanDev</p>
-        <ul className="menu menu-horizontal text-xl font-bold text-black">
+        <p className="text-3xl  text-white font-bold">IvanDev</p>
+        <ul className="menu menu-horizontal text-xl font-bold text-white">
           <li><a onClick={() => handleNavClick("home")}>Home</a></li>
           <li><a onClick={() => handleNavClick("aboutme")}>About me</a></li>
           <li><a onClick={() => handleNavClick("projects")}>Projects</a></li>
