@@ -39,10 +39,12 @@ export default function Home() {
         opacity={isVisible ? 1 : 0}
       >
         <Image
-          maxW={{ base: '100%', sm: '400px' }}
-          src='/logo.png'
+          maxW={{ base: '100%', sm: '350px' }}
+          //Width='340px'
+          //height='340px'
+          src='logo.png'
           mr={{ base: '0', sm: '550' }}
-          borderRadius='30%'
+          borderRadius='10%'
           boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
         />
 

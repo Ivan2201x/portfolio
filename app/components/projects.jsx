@@ -36,6 +36,7 @@ export default function Projects() {
                     Projects
                 </Heading>
                 <Card
+                className='bg-transparent'
                     direction={{ base: 'column', sm: 'row' }}
                     overflow='hidden'
                     variant='outline'
@@ -58,7 +59,6 @@ export default function Projects() {
                                 </Link>
                             </Text>
                         </CardBody>
-                        <Divider mt='5%'/>
                         <CardFooter className='gap-5'>
                             <Heading mr='40%' className='font-bold text-lg text-black animate-pulse'>Tech Used</Heading>
                             <FaReact className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#61dafb" /> 
