@@ -31,6 +31,7 @@ export default function Myskills() {
   return (
     <Flex id='skills'>
       <Card
+      className='bg-indigo-50'
         maxW="500px"
         direction={{ base: 'column', sm: 'row' }}
         overflow='hidden'
@@ -42,7 +43,7 @@ export default function Myskills() {
         transition='opacity 1s ease-in-out'
       >
         <VStack spacing="2" p="2" alignItems="center">
-          <Text className='font-bold text-xl text-slate-500 animate-pulse' >My Skills</Text>
+          <Text className='font-bold text-xl text-black animate-pulse' >My Skills</Text>
           <HStack spacing="10" mt='2'>
             <Image className='transition ease-out duration-300 transform hover:scale-125' src='javaIcon.png' w={30} h={30} />
             <FaJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#f7df1e" /> {/* Icono de JavaScript */}

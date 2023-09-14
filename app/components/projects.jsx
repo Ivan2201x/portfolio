@@ -30,7 +30,7 @@ export default function Projects() {
                     transition='opacity 1s ease-in'
                     mt='5%'
                     ml='24%'
-                    className='text-slate-500' size='2xl'>
+                    className='text-slate-600' size='2xl'>
                     Projects
                 </Heading>
                 <Card

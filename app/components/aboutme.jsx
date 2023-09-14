@@ -33,7 +33,7 @@ export default function Aboutme() {
             transition='opacity 1s ease-in'
         >
             <Box>
-                <Heading mt='15%' ml='7%' className='text-slate-500' size='2xl'>
+                <Heading mt='15%' ml='7%' className='text-slate-600' size='2xl'>
                     About Me
                 </Heading>
                 <Image

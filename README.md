@@ -1,1 +1,1 @@
-Personal portfolio built with NextJs, with Javascript, ChakraUI and some of Tailwindcss.
+Personal portfolio built with NextJs, Javascript, ChakraUI and Tailwindcss(DaisyUI).

@@ -57,22 +57,21 @@ function Navbar() {
       transition="opacity 0.5s"
     >
       <Box
-      className="bg-slate-500"
+      className="bg-black"
         as="nav"
-        color="black"
         px={4}
         py={2}
         display="flex"
         justifyContent="space-between"
         alignItems="center"
       >
-        <a className="text-3xl menu menu-horizontal cursor-pointer text-white font-bold" onClick={() => handleNavClick("/")}>IvanDev</a>
-        <ul className="menu menu-horizontal text-xl font-bold text-white">
-          <li><a onClick={() => handleNavClick("home")}>Home</a></li>
-          <li><a onClick={() => handleNavClick("aboutme")}>About me</a></li>
-          <li><a onClick={() => handleNavClick("projects")}>Projects</a></li>
-          <li><a onClick={() => handleNavClick("certificates")}>Certificates</a></li>
-          <li><a onClick={() => handleNavClick("contact")}>Contact</a></li>
+        <a className="text-3xl menu menu-horizontal cursor-pointer text-indigo-100 font-bold  " onClick={() => handleNavClick("/")}>IvanDev</a>
+        <ul className="menu menu-horizontal text-xl font-bold text-indigo-100">
+          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("home")}>Home</a></li>
+          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("aboutme")}>About me</a></li>
+          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("projects")}>Projects</a></li>
+          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("certificates")}>Certificates</a></li>
+          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
         </ul>
       </Box>
     </Box>
