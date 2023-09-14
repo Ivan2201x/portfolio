@@ -1,5 +1,5 @@
 'use client'
-import { Box, Heading, Image } from '@chakra-ui/react';
+import { Box, Heading, Image, Button, ButtonGroup } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
 export default function Certificates() {
@@ -32,7 +32,7 @@ export default function Certificates() {
                 <Box
                     boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
                     className="carousel rounded-box"
-                    maxWidth="580px" // Ajusta el ancho máximo según tus necesidades
+                    maxWidth="583px" // Ajusta el ancho máximo según tus necesidades
                     margin="0 auto" // Esto centrará el carrusel horizontalmente
                     ml='10%'
                 >
@@ -56,14 +56,6 @@ export default function Certificates() {
                             <Image src="mcs.png" maxH="450px" maxW="100%" />
                         </a>
                     </div>
-                </Box>
-                <Box mr='30%' mt='1%'>
-                <div className="flex justify-center w-full py-2 gap-2">
-                    <a href="#cert1" className="btn btn-sm bg-white">1</a>
-                    <a href="#cert2" className="btn btn-sm bg-white">2</a>
-                    <a href="#cert3" className="btn btn-sm bg-white">3</a>
-                    <a href="#cert4" className="btn btn-sm bg-white">4</a>
-                </div>
                 </Box>
             </Box>
         </>

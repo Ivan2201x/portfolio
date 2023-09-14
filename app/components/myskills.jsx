@@ -32,8 +32,6 @@ export default function Myskills() {
     <Flex id='skills'>
       <Card
       className='bg-indigo-50'
-        maxW="500px"
-        direction={{ base: 'column', sm: 'row' }}
         overflow='hidden'
         variant='outline'
         ml='35%'

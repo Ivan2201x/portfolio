@@ -65,12 +65,11 @@ function Navbar() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <a className="text-3xl menu menu-horizontal cursor-pointer text-indigo-100 font-bold  " onClick={() => handleNavClick("/")}>IvanDev</a>
+        <a className="text-3xl menu menu-horizontal cursor-pointer text-indigo-100 font-bold ml-5" onClick={() => handleNavClick("/")}>Ivan</a>
         <ul className="menu menu-horizontal text-xl font-bold text-indigo-100">
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("home")}>Home</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("aboutme")}>About me</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("projects")}>Projects</a></li>
-          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("certificates")}>Certificates</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
         </ul>
       </Box>
