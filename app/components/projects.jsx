@@ -53,7 +53,7 @@ export default function Projects() {
                             <Heading size='md'>Fundacion Otono Inolvidable Web Page</Heading>
 
                             <Text py='2' className='text-justify'>
-                                I created a website for a senior citizens foundation, which I added payment buttons so they can donate. You can visit it as{' '}
+                                I created a website for a senior citizens foundation on React with Js, bootstrap and css, which I added payment buttons so people can donate. You can visit it as{' '}
                                 <Link className='text-orange-400' href='https://otonoinolvidable.org' isExternal>
                                     www.otonoinolvidable.org
                                 </Link>
@@ -72,6 +72,7 @@ export default function Projects() {
                         src='FOIproject.png'
                     />
                 </Card>
+                
             </Box>
         </>
     )

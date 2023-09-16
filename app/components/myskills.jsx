@@ -1,7 +1,6 @@
 import { Flex, VStack, Image, Text, HStack, Card } from '@chakra-ui/react';
 import { FaJs, FaReact, FaNodeJs } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
-
 export default function Myskills() {
   const [isVisible, setIsVisible] = useState(false);
 

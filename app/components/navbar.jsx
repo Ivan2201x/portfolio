@@ -1,8 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box, IconButton } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 
 function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +17,6 @@ function Navbar() {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
 
-    // Agregar una pequeña demora antes de establecer isVisible en true
     const delayTimer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
@@ -29,13 +29,11 @@ function Navbar() {
 
   const handleNavClick = (sectionId) => {
     if (sectionId === '/') {
-      // Manejar el caso de "IvanDev" para regresar al inicio de la página
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
     } else {
-      // Para las otras secciones, realiza el desplazamiento suave
       const section = document.getElementById(sectionId);
       if (section) {
         window.scrollTo({
@@ -44,6 +42,10 @@ function Navbar() {
         });
       }
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -57,7 +59,7 @@ function Navbar() {
       transition="opacity 0.5s"
     >
       <Box
-      className="bg-black"
+        className="bg-black"
         as="nav"
         px={4}
         py={2}
@@ -66,13 +68,43 @@ function Navbar() {
         alignItems="center"
       >
         <a className="text-3xl menu menu-horizontal cursor-pointer text-indigo-100 font-bold ml-5" onClick={() => handleNavClick("/")}>Ivan</a>
-        <ul className="menu menu-horizontal text-xl font-bold text-indigo-100">
+        
+        {/* Menú para pantallas grandes */}
+        <ul className="menu menu-horizontal text-xl font-bold text-indigo-100 hidden sm:flex">
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("home")}>Home</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("aboutme")}>About me</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("projects")}>Projects</a></li>
-          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
+          <li><a className="hover-bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
         </ul>
+        
+        {/* Botón de hamburguesa para pantallas pequeñas (móviles) */}
+        <IconButton
+          icon={isMobileMenuOpen ? 'close' : 'menu'}
+          onClick={toggleMobileMenu}
+          variant="ghost"
+          colorScheme="white"
+          aria-label="Toggle Mobile Menu"
+          display={{ base: 'flex', sm: 'none' }}
+        />
       </Box>
+
+      {isMobileMenuOpen && (
+        <Box
+          className="bg-black"
+          as="nav"
+          py={2}
+          display="block"
+          textAlign="center"
+          fontSize="xl"
+        >
+          <ul className="menu menu-vertical text-white">
+            <li><a onClick={() => handleNavClick("home")}>Home</a></li>
+            <li><a onClick={() => handleNavClick("aboutme")}>About me</a></li>
+            <li><a onClick={() => handleNavClick("projects")}>Projects</a></li>
+            <li><a onClick={() => handleNavClick("contact")}>Contact</a></li>
+          </ul>
+        </Box>
+      )}
     </Box>
   );
 }
