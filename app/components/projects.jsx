@@ -1,5 +1,5 @@
 'use client'
-import { Card, CardBody, Stack, Heading, Image, Text, Link, Box, Divider, CardFooter } from '@chakra-ui/react';
+import { Card, CardBody, Stack, Heading, Image, Text, Link, Box, CardFooter } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaJs, FaReact } from 'react-icons/fa';
 
@@ -60,7 +60,7 @@ export default function Projects() {
                             </Text>
                         </CardBody>
                         <CardFooter className='gap-5'>
-                            <Heading mr='40%' className='font-bold text-lg text-black animate-pulse'>Tech Stack</Heading>
+                            <Text fontSize='md' mr='40%' className='font-bold text-black animate-pulse'>Tech Stack</Text>
                             <FaReact className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#61dafb" /> 
                             <FaJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#f7df1e" /> 
                             <Image alt='cssIcon' className='transition ease-out duration-300 transform hover:scale-125' src='cssIcon.png' w={30} h={30} />
