@@ -58,7 +58,7 @@ export default function Contact() {
                                 <Text marginRight="1rem">ipuga2201@gmail.com</Text>
                             </Box>
                             <Box mb={4} display="flex" alignItems="center">
-                                <Image src="linkdinIcon.png" width={7} height={7} mr='4' />
+                                <Image alt='LinkdInIcon' src="linkdinIcon.png" width={7} height={7} mr='4' />
                                 <Text marginRight="1rem">Ivan Puga Macias</Text>
                             </Box>
                         </Box>

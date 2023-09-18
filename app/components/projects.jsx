@@ -1,7 +1,7 @@
 'use client'
 import { Card, CardBody, Stack, Heading, Image, Text, Link, Box, Divider, CardFooter } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { FaJs, FaReact, FaNodeJs } from 'react-icons/fa';
+import { FaJs, FaReact } from 'react-icons/fa';
 
 
 
@@ -63,10 +63,11 @@ export default function Projects() {
                             <Heading mr='40%' className='font-bold text-lg text-black animate-pulse'>Tech Used</Heading>
                             <FaReact className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#61dafb" /> 
                             <FaJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#f7df1e" /> 
-                            <Image className='transition ease-out duration-300 transform hover:scale-125' src='cssIcon.png' w={30} h={30} />
+                            <Image alt='cssIcon' className='transition ease-out duration-300 transform hover:scale-125' src='cssIcon.png' w={30} h={30} />
                         </CardFooter>
                     </Stack>
                     <Image
+                        alt='FOIProject'
                         objectFit='cover'
                         maxH='100%'
                         src='FOIproject.png'

@@ -40,14 +40,14 @@ export default function Myskills() {
         transition='opacity 1s ease-in-out'
       >
         <VStack spacing="2" p="2" alignItems="center">
-          <Text className='font-bold text-xl text-black animate-pulse' >My Skills</Text>
-          <HStack spacing="10" mt='2'>
-            <Image className='transition ease-out duration-300 transform hover:scale-125' src='javaIcon.png' w={30} h={30} />
+          <Text className='font-bold text-xl text-black animate-pulse'>My Skills</Text>
+          <HStack spacing="10" mt="2">
+            <Image alt='javaIcon' className='transition ease-out duration-300 transform hover:scale-125' src='javaIcon.png' w={30} h={30} />
             <FaJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#f7df1e" /> {/* Icono de JavaScript */}
             <FaReact className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#61dafb" /> {/* Icono de React */}
-            <Image className='transition ease-out duration-300 transform hover:scale-125' src='nextjsIcon.png' w={30} h={30} />
+            <Image alt='nextjsIcon' className='transition ease-out duration-300 transform hover:scale-125' src='nextjsIcon.png' w={30} h={30} />
             <FaNodeJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#68a063" /> {/* Icono de Node.js */}
-            <Image className='transition ease-out duration-300 transform hover:scale-125' src='linuxIcon.png' w={30} h={30} />
+            <Image alt='linuxIcon' className='transition ease-out duration-300 transform hover:scale-125' src='linuxIcon.png' w={30} h={30} />
           </HStack>
         </VStack>
       </Card>
