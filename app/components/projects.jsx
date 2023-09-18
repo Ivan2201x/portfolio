@@ -60,7 +60,7 @@ export default function Projects() {
                             </Text>
                         </CardBody>
                         <CardFooter className='gap-5'>
-                            <Heading mr='40%' className='font-bold text-lg text-black animate-pulse'>Tech Used</Heading>
+                            <Heading mr='40%' className='font-bold text-lg text-black animate-pulse'>Tech Stack</Heading>
                             <FaReact className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#61dafb" /> 
                             <FaJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#f7df1e" /> 
                             <Image alt='cssIcon' className='transition ease-out duration-300 transform hover:scale-125' src='cssIcon.png' w={30} h={30} />

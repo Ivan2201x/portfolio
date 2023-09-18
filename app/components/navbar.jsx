@@ -74,7 +74,7 @@ function Navbar() {
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("home")}>Home</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("aboutme")}>About me</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("projects")}>Projects</a></li>
-          <li><a className="hover-bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
+          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
         </ul>
         
         {/* Botón de hamburguesa para pantallas pequeñas (móviles) */}
