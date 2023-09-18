@@ -4,7 +4,6 @@ import  Home  from './components/home';
 import Myskills from './components/myskills';
 import Aboutme from './components/aboutme';
 import Projects from './components/projects';
-import Certificates from './components/certificates';
 import Contact from './components/contact';
 import Footer from './components/footer';
 
