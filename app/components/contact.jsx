@@ -40,7 +40,7 @@ export default function Contact() {
                 borderRadius='10%'
             >
                 <Box>
-                    <Heading mt='5%' ml='31%' className='text-slate-600' size='2xl'>
+                    <Heading  mt='5%' ml='31%' className='contactTittle text-slate-600' size='2xl'>
                         Contact
                     </Heading>
 
