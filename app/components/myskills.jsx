@@ -30,7 +30,7 @@ export default function Myskills() {
   return (
     <Flex id='skills'>
       <Card
-      className='bg-indigo-50'
+      className='card-container bg-indigo-50'
         overflow='hidden'
         variant='outline'
         ml='35%'

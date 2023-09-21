@@ -1,4 +1,5 @@
 import { Box, IconButton } from "@chakra-ui/react";
+import { HamburgerIcon } from '@chakra-ui/icons'
 import { useEffect, useState } from 'react';
 
 function Navbar() {
@@ -68,7 +69,7 @@ function Navbar() {
         alignItems="center"
       >
         <a className="text-3xl menu menu-horizontal cursor-pointer text-indigo-100 font-bold ml-5" onClick={() => handleNavClick("/")}>Ivan</a>
-        
+
         {/* Menú para pantallas grandes */}
         <ul className="menu menu-horizontal text-xl font-bold text-indigo-100 hidden sm:flex">
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("home")}>Home</a></li>
@@ -76,14 +77,13 @@ function Navbar() {
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("projects")}>Projects</a></li>
           <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
         </ul>
-        
+
         {/* Botón de hamburguesa para pantallas pequeñas (móviles) */}
         <IconButton
-          icon={isMobileMenuOpen ? 'close' : 'menu'}
+          icon={<HamburgerIcon />}
           onClick={toggleMobileMenu}
-          variant="ghost"
-          colorScheme="white"
-          aria-label="Toggle Mobile Menu"
+          colorScheme='blue'
+          aria-label='Search database'
           display={{ base: 'flex', sm: 'none' }}
         />
       </Box>

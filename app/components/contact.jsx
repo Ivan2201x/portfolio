@@ -25,6 +25,7 @@ export default function Contact() {
 
     return (
         <Box 
+            className='cardContact'
             pb='7%' 
             opacity={isVisible ? 1 : 0}
             transition='opacity 1s ease-in'>

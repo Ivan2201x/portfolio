@@ -26,7 +26,7 @@ export default function Projects() {
     }, []);
     return (
         <>
-            <Box id='projects' pt='5%'>
+            <Box className='boxProject' id='projects' pt='5%'>
                 <Heading
                     opacity={isVisible ? 1 : 0}
                     transition='opacity 1s ease-in'
@@ -36,7 +36,7 @@ export default function Projects() {
                     Projects
                 </Heading>
                 <Card
-                className='bg-transparent'
+                    className='cardProjects bg-transparent'
                     direction={{ base: 'column', sm: 'row' }}
                     overflow='hidden'
                     variant='outline'

@@ -39,6 +39,7 @@ export default function Home() {
         opacity={isVisible ? 1 : 0}
       >
         <Image
+          className='ImgHome'
           alt='Ivan Puga Logo'
           maxW={{ base: '100%', sm: '350px' }}
           //Width='340px'
@@ -56,7 +57,7 @@ export default function Home() {
             A passionate starter Developer Junior <br />
             from Ecuador. <br />
           </Text>
-          <HStack spacing="8" mt='10' ml='2'>
+          <HStack className='socialIcons' spacing="8" mt='10' ml='2'>
             <Link href='https://github.com/Ivan2201x' isExternal>
               <Image alt='githubIcon' src='githubIcon.png' boxSize='35px' className='transition ease-out duration-300 transform hover:scale-125' />
             </Link>

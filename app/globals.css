@@ -7,4 +7,41 @@ body{
     background: linear-gradient(90deg, rgba(209, 207, 255, 1) 0%, rgba(250, 250, 250, 1) 50%, rgba(209, 207, 255, 1) 100%);
 }
 
-  
+@media (max-width: 768px) {
+    .ImgHome{
+        width: 70%;
+    }
+    .socialIcons{
+        margin-left: 17%;
+        margin-top: 3%;
+    }
+    .card-container{
+        margin-top: 30%;
+        right: 2.5%;
+        margin-left: 5%;
+        max-width: 100%;
+    }
+    .boxAboutme{
+        margin-top: 50%;
+        margin-bottom: 10%;
+    }
+
+    .ImgAboutme{
+       width: 70%;
+       margin-left: 1%;
+    }
+    .textAboutme{
+        margin-left: -25%;
+    }
+
+    .boxProject{
+        padding-top: 20%;
+        padding-bottom: 20%;
+    }
+
+    .cardContact{
+        margin-top: 40%;
+        margin-left: -25%;
+        padding-right: 12%;
+    }
+}
