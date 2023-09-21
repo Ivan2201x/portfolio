@@ -16,10 +16,10 @@ body{
         margin-top: 3%;
     }
     .card-container{
-        margin-top: 30%;
-        right: 2.5%;
-        margin-left: 5%;
-        max-width: 100%;
+        margin-top: 20%;
+        margin-left: 0%;
+        max-width: 100%; 
+        transform: scale(0.8); /* Reduzca el tamaño de la tarjeta */
     }
     .boxAboutme{
         margin-top: 50%;

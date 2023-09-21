@@ -1,5 +1,4 @@
 import { Flex, VStack, Image, Text, HStack, Card } from '@chakra-ui/react';
-import { FaJs, FaReact, FaNodeJs } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 export default function Myskills() {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,10 +42,10 @@ export default function Myskills() {
           <Text className="font-bold text-xl text-black animate-pulse">My Skills</Text>
           <HStack spacing="10" mt="2">
             <Image alt='javaIcon' className='transition ease-out duration-300 transform hover:scale-125' src='javaIcon.png' w={30} h={30} />
-            <FaJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#f7df1e" /> {/* Icono de JavaScript */}
-            <FaReact className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#61dafb" /> {/* Icono de React */}
+            <Image alt='jsIcon' className='transition ease-out duration-300 transform hover:scale-125' src='jsIcon.png' w={30} h={30} />
+            <Image alt='reactIcon' className='transition ease-out duration-300 transform hover:scale-125' src='reactIcon.png' w={30} h={30} />
             <Image alt='nextjsIcon' className='transition ease-out duration-300 transform hover:scale-125' src='nextjsIcon.png' w={30} h={30} />
-            <FaNodeJs className='transition ease-out duration-300 transform hover:scale-125' size={30} color="#68a063" /> {/* Icono de Node.js */}
+            <Image alt='nodeIcon' className='transition ease-out duration-300 transform hover:scale-125' src='nodeIcon.png' w={30} h={30} />
             <Image alt='linuxIcon' className='transition ease-out duration-300 transform hover:scale-125' src='linuxIcon.png' w={30} h={30} />
           </HStack>
         </VStack>
