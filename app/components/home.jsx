@@ -40,11 +40,11 @@ export default function Home() {
       >
         <Image
           className='ImgHome'
-          alt='Ivan Puga Logo'
-          maxW={{ base: '100%', sm: '350px' }}
+          alt='Ivan Puga Macias'
+          maxW={{ base: '100%', sm: '300px' }}
           //Width='340px'
           //height='340px'
-          src='logo.png'
+          src='ivanFotoHome.jpg'
           mr={{ base: '0', sm: '550' }}
           borderRadius='10%'
           boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'

@@ -26,6 +26,7 @@ export default function Aboutme() {
             id='aboutme'
             maxW='900px'
             h='650px'
+            pt='1%'
             mt='10%'
             ml='20%'
             opacity={isVisible ? 1 : 0}

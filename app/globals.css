@@ -21,10 +21,6 @@ body{
         max-width: 100%; 
         transform: scale(0.8); /* Reduzca el tamaño de la tarjeta */
     }
-    .boxAboutme{
-        margin-top: 50%;
-        margin-bottom: 10%;
-    }
 
     .ImgAboutme{
        width: 70%;
