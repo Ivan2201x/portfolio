@@ -18,8 +18,8 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/ivanFotoHome.jpg',
-        width: 800,
+        url: '/ivan-hero.png',
+        width: 1200,
         height: 800,
         alt: 'Ivan Puga Macias',
       },
@@ -30,7 +30,7 @@ export const metadata = {
     title: 'Ivan Puga Macias | Full Stack Developer',
     description: 'Portfolio of Ivan Puga Macias — Full Stack Developer from Ecuador.',
     creator: '@ipuga_dev',
-    images: ['/ivanFotoHome.jpg'],
+    images: ['/ivan-hero.png'],
   },
   icons: {
     icon: '/Icon.png',

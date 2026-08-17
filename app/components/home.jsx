@@ -44,13 +44,14 @@ export default function Home() {
           />
           <Image
             alt="Ivan Puga Macias"
-            src="/ivanFotoHome.jpg"
-            maxW={{ base: '260px', md: '320px' }}
+            src="/ivan-hero.png"
+            maxW={{ base: '100%', sm: '360px', md: '420px' }}
             w="full"
             borderRadius="1.5rem"
             border="3px solid white"
             boxShadow="0 20px 50px rgba(15, 23, 42, 0.12)"
             objectFit="cover"
+            objectPosition="center top"
             position="relative"
           />
         </Box>
