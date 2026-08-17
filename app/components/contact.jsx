@@ -1,71 +1,75 @@
-import { Box, Heading, Text, Image, Center, Icon } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { Box, Text, Link, Icon, Image } from '@chakra-ui/react';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import SectionShell from './ui/SectionShell';
+import SectionHeading from './ui/SectionHeading';
 
+const CONTACT_ITEMS = [
+  {
+    icon: FaPhone,
+    label: 'Phone',
+    value: '+593 991432632',
+    href: 'tel:+593991432632',
+  },
+  {
+    icon: FaEnvelope,
+    label: 'Email',
+    value: 'ipuga2201@gmail.com',
+    href: 'mailto:ipuga2201@gmail.com',
+  },
+  {
+    type: 'image',
+    src: '/linkdinIcon.png',
+    label: 'LinkedIn',
+    value: 'Ivan Puga Macias',
+    href: 'https://www.linkedin.com/in/ivan-puga-macias/',
+  },
+];
 
 export default function Contact() {
-    const [isVisible, setIsVisible] = useState(true);
+  const { ref, isVisible } = useScrollReveal();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                const contactRect = contactSection.getBoundingClientRect();
-                setIsVisible(contactRect.top <= window.innerHeight * 0.75);
-            }
-        };
+  return (
+    <SectionShell id="contact" variant="dark">
+      <Box
+        ref={ref}
+        opacity={isVisible ? 1 : 0}
+        transform={isVisible ? 'translateY(0)' : 'translateY(24px)'}
+        transition="opacity 0.8s ease-out, transform 0.8s ease-out"
+      >
+        <SectionHeading
+          title="Get in Touch"
+          subtitle="Open to new opportunities, collaborations and interesting projects"
+        />
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    return (
-        <Box 
-            className='cardContact'
-            pb='7%' 
-            opacity={isVisible ? 1 : 0}
-            transition='opacity 1s ease-in'>
-            <Box
-                id='contact'
-                maxW='500px'
-                h='auto'
-                overflow='hidden'
-                mt='15%'
-                ml='32.5%'
-                boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
-                borderRadius='10%'
+        <Box maxW="32rem" mx="auto" display="grid" gap={3}>
+          {CONTACT_ITEMS.map(({ icon, type, src, label, value, href }) => (
+            <Link
+              key={label}
+              href={href}
+              isExternal={href.startsWith('http')}
+              className="contact-tile"
+              _hover={{ textDecoration: 'none', color: 'inherit' }}
             >
-                <Box>
-                    <Heading  mt='5%' ml='31%' className='contactTittle text-slate-600' size='2xl'>
-                        Contact
-                    </Heading>
-
-                    <Text  py='5' pl='7%' pr='7%' className='text-center text-xl'>
-                        If you are interested in hiring me, contact me through this
-                        means:
-                    </Text>
-                    <Center pt='3%' ml='10' mb='3'>
-                        <Box textAlign="center">
-                            <Box mb={4} display="flex" alignItems="center">
-                                <Icon as={FaPhone} boxSize={6} mr='4' />
-                                <Text marginRight="1rem">+593 991432632</Text>
-                            </Box>
-                            <Box mb={4} display="flex" alignItems="center">
-                                <Icon as={FaEnvelope} boxSize={6} mr='4' />
-                                <Text marginRight="1rem">ipuga2201@gmail.com</Text>
-                            </Box>
-                            <Box mb={4} display="flex" alignItems="center">
-                                <Image alt='LinkdInIcon' src="linkdinIcon.png" width={7} height={7} mr='4' />
-                                <Text marginRight="1rem">Ivan Puga Macias</Text>
-                            </Box>
-                        </Box>
-                    </Center>
+              {type === 'image' ? (
+                <Image alt={label} src={src} boxSize={6} />
+              ) : (
+                <Box p={2} borderRadius="lg" bg="rgba(99, 102, 241, 0.2)">
+                  <Icon as={icon} boxSize={5} color="indigo.200" />
                 </Box>
-            </Box>
+              )}
+              <Box>
+                <Text fontSize="xs" fontWeight="700" textTransform="uppercase" color="indigo.200">
+                  {label}
+                </Text>
+                <Text fontWeight="600" color="white">
+                  {value}
+                </Text>
+              </Box>
+            </Link>
+          ))}
         </Box>
-    );
+      </Box>
+    </SectionShell>
+  );
 }

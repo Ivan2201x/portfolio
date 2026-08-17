@@ -1,22 +1,50 @@
-import { Providers } from "./providers";
-import './globals.css'
-
+import { Providers } from './providers';
+import './globals.css';
 
 export const metadata = {
-  title: 'ipugadev',
-  description: 'Portfolio Ivan Puga Macias',
-}
+  title: {
+    default: 'Ivan Puga Macias | Full Stack Developer',
+    template: '%s | Ivan Puga Macias',
+  },
+  description:
+    'Portfolio of Ivan Puga Macias — Full Stack Developer from Ecuador. Back-end developer aspiring to become full stack.',
+  keywords: ['Ivan Puga', 'web developer', 'portfolio', 'React', 'Next.js', 'Ecuador'],
+  authors: [{ name: 'Ivan Puga Macias' }],
+  openGraph: {
+    title: 'Ivan Puga Macias | Full Stack Developer',
+    description: 'Portfolio of Ivan Puga Macias — Full Stack Developer from Ecuador.',
+    siteName: 'Ivan Puga Macias Portfolio',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/ivanFotoHome.jpg',
+        width: 800,
+        height: 800,
+        alt: 'Ivan Puga Macias',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ivan Puga Macias | Full Stack Developer',
+    description: 'Portfolio of Ivan Puga Macias — Full Stack Developer from Ecuador.',
+    creator: '@ipuga_dev',
+    images: ['/ivanFotoHome.jpg'],
+  },
+  icons: {
+    icon: '/Icon.png',
+  },
+};
 
-export default function RootLayout({children}) {
+export default function RootLayout({ children }) {
   return (
-    <html lang="en" className='light'>
-      <head>
-        <link rel="icon" href="/Icon.png" sizes="any" />
-      </head>
+    <html lang="en" className="light">
       <body>
-      <Providers>
-        { children }
-      </Providers>
+        <a href="#home" className="skip-link">
+          Skip to content
+        </a>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

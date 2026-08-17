@@ -1,56 +1,55 @@
-import { Box, Heading, Text, Image } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { Box, Text, Image, Stack } from '@chakra-ui/react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import SectionShell from './ui/SectionShell';
+import SectionHeading from './ui/SectionHeading';
 
 export default function Aboutme() {
-    const [isVisible, setIsVisible] = useState(true);
+  const { ref, isVisible } = useScrollReveal();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const aboutmeSection = document.getElementById('aboutme');
-            if (aboutmeSection) {
-                const aboutmeRect = aboutmeSection.getBoundingClientRect();
-                setIsVisible(aboutmeRect.top <= window.innerHeight * 0.75);
-            }
-        };
+  return (
+    <SectionShell id="aboutme">
+      <Box
+        ref={ref}
+        opacity={isVisible ? 1 : 0}
+        transform={isVisible ? 'translateY(0)' : 'translateY(24px)'}
+        transition="opacity 0.8s ease-out, transform 0.8s ease-out"
+      >
+        <SectionHeading title="About Me" subtitle="Who I am and what drives my work" />
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    return (
-        <Box className='boxAboutme'
-            id='aboutme'
-            maxW='900px'
-            h='650px'
-            pt='1%'
-            mt='10%'
-            ml='20%'
-            opacity={isVisible ? 1 : 0}
-            transition='opacity 1s ease-in'
+        <Stack
+          direction={{ base: 'column', lg: 'row' }}
+          spacing={{ base: 8, lg: 12 }}
+          align={{ base: 'center', lg: 'start' }}
+          className="panel"
+          p={{ base: 6, md: 8 }}
         >
-            <Box>
-                <Heading mt='15%' ml='7%' className='text-slate-600' size='2xl'>
-                    About Me
-                </Heading>
-                <Image
-                    className='ImgAboutme'
-                    alt='Ivan Puga Macias'
-                    borderRadius='20%'
-                    ml='35%'
-                    mt='5'
-                    maxW='250px'
-                    src='IvanFoto.png'
-                    boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
-                />
-                <Text mt='5' py='5' pl='7%' pr='7%' className='textAboutme text-justify text-xl '>
-                    My name is Ivan Jose Puga Macias, Im 21 years old, I live in Ecuador and Im a student of Computer Science Engineering in my 7th semester.
-                    I am currently working as a Junior Back-end Developer in a small company. My aspiration is to become a full stack developer.
-                </Text>
-            </Box>
-        </Box>
-    );
+          <Image
+            alt="Ivan Puga Macias"
+            src="/IvanFoto.png"
+            maxW="220px"
+            w="full"
+            borderRadius="1.25rem"
+            border="3px solid white"
+            boxShadow="0 16px 40px rgba(15, 23, 42, 0.1)"
+            objectFit="cover"
+            flexShrink={0}
+          />
+
+          <Box color="slate.700" fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.8">
+            <Text mb={4}>
+              My name is Ivan Jose Puga Macias, a passionate Full Stack Developer from Ecuador.
+              I&apos;m committed to expanding my technical skills and achieving excellence in software
+              development, with a focus on building efficient and scalable solutions.
+            </Text>
+            <Text>
+              I currently work remotely at Iterlab S.A., developing full-stack applications and
+              integrating AI capabilities via LLM APIs. Previously at Certifisa S.A., I specialized
+              in Oracle JD Edwards backend development and electronic invoicing systems. I hold a
+              Software Engineering degree from Universidad Politécnica Salesiana (2020–2024).
+            </Text>
+          </Box>
+        </Stack>
+      </Box>
+    </SectionShell>
+  );
 }

@@ -1,78 +1,118 @@
-import { Center, Stack, Heading, Image, Text, Link, HStack } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { Box, Stack, Text, Link, HStack, Image, Button } from '@chakra-ui/react';
+import { DownloadIcon } from '@chakra-ui/icons';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+
+const SOCIAL_LINKS = [
+  { href: 'https://github.com/Ivan2201x', src: '/githubIcon.png', alt: 'GitHub profile' },
+  { href: 'https://www.linkedin.com/in/ivan-puga-macias/', src: '/linkdinIcon.png', alt: 'LinkedIn profile' },
+  { href: 'https://www.instagram.com/ivan2201.dev/', src: '/InstagramIcon.png', alt: 'Instagram profile' },
+  { href: 'https://twitter.com/ipuga_dev', src: '/TwitterIcon.png', alt: 'Twitter profile' },
+];
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const homeSection = document.getElementById('home');
-      if (homeSection) {
-        const homeSectionRect = homeSection.getBoundingClientRect();
-        setIsVisible(homeSectionRect.top <= window.innerHeight * 0.75);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    // Agregar una pequeña demora antes de establecer isVisible en true
-    const delayTimer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(delayTimer);
-    };
-  }, []);
+  const { ref, isVisible } = useScrollReveal(0.1);
 
   return (
-    <Center id='home'>
+    <Box
+      as="section"
+      id="home"
+      ref={ref}
+      minH={{ base: 'auto', md: '88vh' }}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      px={{ base: 4, md: 8 }}
+      py={{ base: 14, md: 20 }}
+    >
       <Stack
-        mt="7%"
-        direction={{ base: 'column', sm: 'row' }}
-        bg='transparent'
+        direction={{ base: 'column', md: 'row' }}
         alignItems="center"
-        spacing={{ base: '4', sm: '8' }}
-        transition='opacity 1s ease-in-out'
+        spacing={{ base: 10, md: 16 }}
+        maxW="72rem"
+        w="full"
         opacity={isVisible ? 1 : 0}
+        transform={isVisible ? 'translateY(0)' : 'translateY(24px)'}
+        transition="opacity 0.8s ease-out, transform 0.8s ease-out"
       >
-        <Image
-          className='ImgHome'
-          alt='Ivan Puga Macias'
-          maxW={{ base: '100%', sm: '300px' }}
-          //Width='340px'
-          //height='340px'
-          src='ivanFotoHome.jpg'
-          mr={{ base: '0', sm: '550' }}
-          borderRadius='10%'
-          boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
-        />
+        <Box position="relative">
+          <Box
+            position="absolute"
+            inset="-8px"
+            borderRadius="1.5rem"
+            bg="linear-gradient(135deg, rgba(79,70,229,0.25), rgba(129,140,248,0.15))"
+            filter="blur(8px)"
+          />
+          <Image
+            alt="Ivan Puga Macias"
+            src="/ivanFotoHome.jpg"
+            maxW={{ base: '260px', md: '320px' }}
+            w="full"
+            borderRadius="1.5rem"
+            border="3px solid white"
+            boxShadow="0 20px 50px rgba(15, 23, 42, 0.12)"
+            objectFit="cover"
+            position="relative"
+          />
+        </Box>
 
-        <Stack flex="1" alignItems="flex-start" textAlign="left">
-          <Heading className='text-slate-600' size='4xl'  >Junior Web <br />Developer</Heading>
-          <Text py='4' color='black' fontSize="2xl" ml='2'>
-            Hi, Im Ivan Puga.  <br />
-            A passionate starter Developer Junior <br />
-            from Ecuador. <br />
+        <Stack flex="1" alignItems={{ base: 'center', md: 'flex-start' }} textAlign={{ base: 'center', md: 'left' }} spacing={5}>
+          <Text
+            fontSize="sm"
+            fontWeight="semibold"
+            letterSpacing="0.12em"
+            textTransform="uppercase"
+            color="indigo.600"
+          >
+            Full Stack Developer
           </Text>
-          <HStack className='socialIcons' spacing="8" mt='10' ml='2'>
-            <Link href='https://github.com/Ivan2201x' isExternal>
-              <Image alt='githubIcon' src='githubIcon.png' boxSize='35px' className='transition ease-out duration-300 transform hover:scale-125' />
-            </Link>
-            <Link href='https://www.linkedin.com/in/ivan-puga-macias/' isExternal>
-              <Image  lat='linkdInIcon' src='linkdinIcon.png' boxSize='35px' className='transition ease-out duration-300 transform hover:scale-125' />
-            </Link>
-            <Link href='https://www.instagram.com/ivan2201.dev/' isExternal>
-              <Image alt='InstagramIcon' src='InstagramIcon.png' boxSize='35px' className='transition ease-out duration-300 transform hover:scale-125' />
-            </Link>
-            <Link href='https://twitter.com/ipuga_dev' isExternal>
-              <Image alt='TwitterIcon' src='TwitterIcon.png' boxSize='35px' className='transition ease-out duration-300 transform hover:scale-125' />
-            </Link>
+          <Box>
+            <Text as="h1" fontSize={{ base: '3xl', md: '5xl' }} fontWeight="800" lineHeight="1.1" color="slate.900">
+              Hi, I&apos;m Ivan Puga Macias
+            </Text>
+            <Text mt={4} color="slate.600" fontSize={{ base: 'lg', md: 'xl' }} maxW="34rem" lineHeight="1.7">
+              I build scalable web applications and AI-powered solutions from Ecuador.
+            </Text>
+          </Box>
+
+          <HStack spacing={3} flexWrap="wrap" justify={{ base: 'center', md: 'flex-start' }}>
+            <Button
+              as="a"
+              href="/IvanPugaCV_en.pdf"
+              download="IvanPugaCV_en.pdf"
+              leftIcon={<DownloadIcon />}
+              colorScheme="purple"
+              size="md"
+              borderRadius="full"
+            >
+              CV (English)
+            </Button>
+            <Button
+              as="a"
+              href="/IvanPugaCV_es.pdf"
+              download="IvanPugaCV_es.pdf"
+              leftIcon={<DownloadIcon />}
+              colorScheme="purple"
+              variant="outline"
+              size="md"
+              borderRadius="full"
+            >
+              CV (Spanish)
+            </Button>
+          </HStack>
+
+          <HStack spacing="6" pt={1}>
+            {SOCIAL_LINKS.map(({ href, src, alt }) => (
+              <Link key={href} href={href} isExternal aria-label={alt} opacity={0.85} _hover={{ opacity: 1, transform: 'translateY(-2px)' }} transition="all 0.2s">
+                <Image
+                  alt={alt}
+                  src={src}
+                  boxSize="34px"
+                />
+              </Link>
+            ))}
           </HStack>
         </Stack>
       </Stack>
-    </Center>
-  )
+    </Box>
+  );
 }

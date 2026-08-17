@@ -1,107 +1,85 @@
-import { Box, IconButton } from "@chakra-ui/react";
-import { HamburgerIcon } from '@chakra-ui/icons'
-import { useEffect, useState } from 'react';
+'use client';
+
+import { Box, IconButton } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
+
+const NAV_LINKS = [
+  { label: 'Home', href: '#home' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'About', href: '#aboutme' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
 
 function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        const navbarRect = navbar.getBoundingClientRect();
-        setIsVisible(navbarRect.top <= window.innerHeight * 0.75);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    const delayTimer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(delayTimer);
-    };
-  }, []);
-
-  const handleNavClick = (sectionId) => {
-    if (sectionId === '/') {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    } else {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        window.scrollTo({
-          top: section.offsetTop,
-          behavior: "smooth"
-        });
-      }
-    }
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const linkClass =
+    'px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300';
 
   return (
     <Box
       id="navbar"
       position="sticky"
       top={0}
-      zIndex={10}
-      boxShadow='0px 4px 6px rgba(0, 0, 0, 0.3)'
-      opacity={isVisible ? 1 : 0}
-      transition="opacity 0.5s"
+      zIndex={1000}
+      bg="#0f172a"
+      boxShadow="0 4px 20px rgba(0, 0, 0, 0.25)"
+      borderBottom="1px solid rgba(255, 255, 255, 0.08)"
     >
       <Box
-        className="bg-black"
         as="nav"
+        aria-label="Main navigation"
         px={4}
-        py={2}
+        py={3}
+        maxW="72rem"
+        mx="auto"
         display="flex"
         justifyContent="space-between"
         alignItems="center"
       >
-        <a className="text-3xl menu menu-horizontal cursor-pointer text-indigo-100 font-bold ml-5" onClick={() => handleNavClick("/")}>Ivan</a>
+        <a href="#home" className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          Ivan<span className="text-indigo-400">.</span>
+        </a>
 
-        {/* Menú para pantallas grandes */}
-        <ul className="menu menu-horizontal text-xl font-bold text-indigo-100 hidden sm:flex">
-          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("home")}>Home</a></li>
-          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("aboutme")}>About me</a></li>
-          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("projects")}>Projects</a></li>
-          <li><a className="hover:bg-indigo-100" onClick={() => handleNavClick("contact")}>Contact</a></li>
+        <ul className="hidden lg:flex gap-1">
+          {NAV_LINKS.map(({ label, href }) => (
+            <li key={href}>
+              <a href={href} className={linkClass}>
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* Botón de hamburguesa para pantallas pequeñas (móviles) */}
         <IconButton
           icon={<HamburgerIcon />}
-          onClick={toggleMobileMenu}
-          colorScheme='blue'
-          aria-label='Search database'
-          display={{ base: 'flex', sm: 'none' }}
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          display={{ base: 'flex', lg: 'none' }}
+          variant="ghost"
+          color="white"
+          _hover={{ bg: 'whiteAlpha.200' }}
         />
       </Box>
 
       {isMobileMenuOpen && (
-        <Box
-          className="bg-black"
-          as="nav"
-          py={2}
-          display="block"
-          textAlign="center"
-          fontSize="xl"
-        >
-          <ul className="menu menu-vertical text-white">
-            <li><a onClick={() => handleNavClick("home")}>Home</a></li>
-            <li><a onClick={() => handleNavClick("aboutme")}>About me</a></li>
-            <li><a onClick={() => handleNavClick("projects")}>Projects</a></li>
-            <li><a onClick={() => handleNavClick("contact")}>Contact</a></li>
+        <Box as="nav" py={3} px={4} display={{ base: 'block', lg: 'none' }} borderTop="1px solid rgba(255,255,255,0.08)">
+          <ul className="flex flex-col gap-1">
+            {NAV_LINKS.map(({ label, href }) => (
+              <li key={href}>
+                <a href={href} className={`block ${linkClass}`} onClick={handleNavClick}>
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </Box>
       )}

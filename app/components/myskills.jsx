@@ -1,55 +1,149 @@
-import { Flex, VStack, Image, Text, HStack, Card } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-export default function Myskills() {
-  const [isVisible, setIsVisible] = useState(false);
+import { Box, Text, HStack, Image } from '@chakra-ui/react';
+import {
+  FaReact,
+  FaNodeJs,
+  FaJava,
+  FaGitAlt,
+  FaAws,
+  FaDocker,
+  FaLinux,
+  FaServer,
+  FaBrain,
+  FaRobot,
+  FaCommentDots,
+  FaCode,
+  FaPlug,
+  FaCubes,
+} from 'react-icons/fa';
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiNginx,
+  SiDigitalocean,
+  SiPostgresql,
+  SiMysql,
+  SiMicrosoftsqlserver,
+  SiOracle,
+  SiNextcloud,
+  SiBootstrap,
+} from 'react-icons/si';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import SectionShell from './ui/SectionShell';
+import SectionHeading from './ui/SectionHeading';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const skillsSection = document.getElementById('skills');
-      if (skillsSection) {
-        const skillsSectionRect = skillsSection.getBoundingClientRect();
-        setIsVisible(skillsSectionRect.top <= window.innerHeight * 100);
-      }
-    };
+const SKILL_CATEGORIES = [
+  {
+    title: 'Frontend',
+    items: [
+      { label: 'React', icon: FaReact, color: '#61dafb' },
+      { label: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+      { label: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
+    ],
+  },
+  {
+    title: 'Backend',
+    items: [
+      { label: 'Node.js', icon: FaNodeJs, color: '#339933' },
+      { label: 'TypeScript', icon: SiTypescript, color: '#3178c6' },
+      { label: 'Java', icon: FaJava, color: '#007396' },
+      { label: 'Oracle JD Edwards', icon: SiOracle, color: '#F80000' },
+      { label: 'REST APIs', icon: FaPlug, color: '#2D3748' },
+    ],
+  },
+  {
+    title: 'AI',
+    items: [
+      { label: 'Claude Code', icon: FaCode, color: '#D97706' },
+      { label: 'LLM Integration', icon: FaBrain, color: '#805AD5' },
+      { label: 'Prompt Engineering', icon: FaCommentDots, color: '#3182CE' },
+      { label: 'AI APIs', icon: FaRobot, color: '#38A169' },
+    ],
+  },
+  {
+    title: 'Cloud',
+    items: [
+      { label: 'AWS', icon: FaAws, color: '#FF9900' },
+      { label: 'DigitalOcean', icon: SiDigitalocean, color: '#0080FF' },
+      { label: 'VPS', icon: FaServer, color: '#4A5568' },
+    ],
+  },
+  {
+    title: 'Databases',
+    items: [
+      { label: 'Oracle', icon: SiOracle, color: '#F80000' },
+      { label: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { label: 'SQL Server', icon: SiMicrosoftsqlserver, color: '#CC2927' },
+      { label: 'MySQL', icon: SiMysql, color: '#4479A1' },
+    ],
+  },
+  {
+    title: 'DevOps & Integrations',
+    items: [
+      { label: 'Docker', icon: FaDocker, color: '#2496ED' },
+      { label: 'Linux', icon: FaLinux, color: '#FCC624' },
+      { label: 'Nginx', icon: SiNginx, color: '#009639' },
+      { label: 'Git', icon: FaGitAlt, color: '#F05032' },
+      { label: 'Odoo', icon: FaCubes, color: '#714B67' },
+      { label: 'Nextcloud', icon: SiNextcloud, color: '#0082C9' },
+    ],
+  },
+];
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    // Agregar una pequeña demora antes de establecer isVisible en true
-    const delayTimer = setTimeout(() => {
-      setIsVisible(true);
-    }, 200);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(delayTimer);
-    };
-  }, []);
+function SkillIcon({ label, icon: Icon, color, src }) {
+  if (src) {
+    return (
+      <Image
+        alt={label}
+        src={src}
+        w={8}
+        h={8}
+        title={label}
+        className="transition ease-out duration-300 transform hover:scale-110"
+      />
+    );
+  }
 
   return (
-    <Flex id='skills'>
-      <Card
-      className='card-container bg-indigo-50'
-        overflow='hidden'
-        variant='outline'
-        ml='35%'
-        mt='10'
-        boxShadow='0px 4px 6px rgba(0, 0, 0, 0.5)'
+    <Box
+      as="span"
+      title={label}
+      aria-label={label}
+      display="inline-flex"
+      className="transition ease-out duration-300 transform hover:scale-110"
+    >
+      <Icon size={30} color={color} />
+    </Box>
+  );
+}
+
+export default function Myskills() {
+  const { ref, isVisible } = useScrollReveal();
+
+  return (
+    <SectionShell id="skills" variant="alt">
+      <Box
+        ref={ref}
         opacity={isVisible ? 1 : 0}
-        transition='opacity 1s ease-in-out'
+        transform={isVisible ? 'translateY(0)' : 'translateY(24px)'}
+        transition="opacity 0.8s ease-out, transform 0.8s ease-out"
       >
-        <VStack spacing="2" p="2" alignItems="center">
-          <Text className="font-bold text-xl text-black animate-pulse">My Skills</Text>
-          <HStack spacing="10" mt="2">
-            <Image alt='javaIcon' className='transition ease-out duration-300 transform hover:scale-125' src='javaIcon.png' w={30} h={30} />
-            <Image alt='jsIcon' className='transition ease-out duration-300 transform hover:scale-125' src='jsIcon.png' w={30} h={30} />
-            <Image alt='reactIcon' className='transition ease-out duration-300 transform hover:scale-125' src='reactIcon.png' w={30} h={30} />
-            <Image alt='nextjsIcon' className='transition ease-out duration-300 transform hover:scale-125' src='nextjsIcon.png' w={30} h={30} />
-            <Image alt='nodeIcon' className='transition ease-out duration-300 transform hover:scale-125' src='nodeIcon.png' w={30} h={30} />
-            <Image alt='linuxIcon' className='transition ease-out duration-300 transform hover:scale-125' src='linuxIcon.png' w={30} h={30} />
-          </HStack>
-        </VStack>
-      </Card>
-    </Flex>
+        <SectionHeading title="My Skills" subtitle="Technologies I work with across the stack" />
+
+        <Box display="grid" gridTemplateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap={4}>
+          {SKILL_CATEGORIES.map(({ title, items }) => (
+            <Box key={title} className="skill-group panel-hover">
+              <Text fontWeight="700" fontSize="sm" mb={4} color="slate.700" letterSpacing="0.04em" textTransform="uppercase">
+                {title}
+              </Text>
+              <HStack spacing={4} flexWrap="wrap">
+                {items.map(({ label, icon, color, src }) => (
+                  <SkillIcon key={label} label={label} icon={icon} color={color} src={src} />
+                ))}
+              </HStack>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+    </SectionShell>
   );
 }
